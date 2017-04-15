@@ -2,12 +2,14 @@ import tkinter as tk
 from tkinter import ttk
 from tkinter.ttk import Style
 from tkinter import *
+from configs import *
 
 
 import json
 import os
 import time
 import datetime
+
 
 LARGE_FONT = ("Verdana", 14)
 NORMAL_FONT = ("Verdana", 12)
@@ -18,6 +20,8 @@ SMALL_FONT = ("Verdana", 10)
 class Page(tk.Frame):
     def __init__(self, *args, **kwargs):
         tk.Frame.__init__(self, *args, **kwargs)
+
+
 
     def show(self):
         self.lift()
@@ -88,12 +92,15 @@ class Page1(Page):
 
         ########
         self.StartItens()
+        #self.createFiles()
 
     def ListarDiretorio(self):
-        path = "c:\PDF Files"
-        path_track = ("\\tracks")
+        #path = "c:\PDF Files"
+        path = PATH
+        path_track = PATH_TRACK
 
-        path_system = os.path.dirname(os.path.realpath(__file__))
+        path_system = PATH_SYSTEM
+        path_files = PATH_SYSTEM+PATH_TRACK
         #path = (r'\\scanserver\folder')
         #path=(r'\\scanserver\folder')
         # open(path, 'w+')
@@ -127,7 +134,7 @@ class Page1(Page):
 
         print("root")
         print()
-        path_files = os.path.join(path_system, path_track)
+
         print(path_files)
 
 
@@ -144,18 +151,13 @@ class Page1(Page):
                 getsize = os.path.getsize(pathname)
                 tictime = time.ctime(getmtimee)
 
-
-
                 dtt = datetime.datetime.strptime(tictime, "%a %b %d %H:%M:%S %Y")
-                ola = dtt.strftime('%Y-%m-%d')
-
-
-
+                nomeArquivo = dtt.strftime('%Y-%m-%d')
 
                 timestFile = datetime.date.fromtimestamp(getctime)
                 timestToday = datetime.datetime.fromtimestamp(getctime)
-                print(ola==timestToday.date())
-                print(getsize)
+                print(nomeArquivo==timestToday.date())
+                print("dtt",dtt)
                 print(file)
 
                 print(timestToday.date())
@@ -268,7 +270,9 @@ class Page1(Page):
             print("fino")
             print(cprontFino)
 
-            json_str = json.dumps(dict)
+
+            json_str = json.dumps(dict,nomeArquivo)
+            self.createFiles(nomeArquivo, json_str)
             print(json_str)
 
 
@@ -283,6 +287,14 @@ class Page1(Page):
             # print(dict)
 
             return dict
+    def createFiles(self, nomeArquivo,dict):
+        path_files = PATH_FILES
+        file = "\\"+nomeArquivo+".json"
+        files = path_files+file
+        arquivo = open(files, 'w', encoding='utf-8')
+        arquivo.write(dict)
+        arquivo.close()
+        print(arquivo)
 
     def StartItens(self):
         dict = self.ListarDiretorio()

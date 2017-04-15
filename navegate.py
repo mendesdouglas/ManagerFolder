@@ -5,6 +5,7 @@ from tkinter import *
 from configs import *
 
 
+
 import json
 import os
 import time
@@ -49,6 +50,7 @@ class Page1(Page):
         self.pfino.pack()
         self.pgrosso = ttk.Label(frame, text="PRONTUÁRIO GROSSO", font=SMALL_FONT)
         self.pgrosso.pack()
+
         self.lblcinco = ttk.Label(frame4, text="7:00", font=SMALL_FONT)
         self.lblcinco.pack()
         self.lblseis = ttk.Label(frame4, text="7:00", font=SMALL_FONT)
@@ -92,6 +94,7 @@ class Page1(Page):
 
         ########
         self.StartItens()
+
         #self.createFiles()
 
     def ListarDiretorio(self):
@@ -153,11 +156,13 @@ class Page1(Page):
 
                 dtt = datetime.datetime.strptime(tictime, "%a %b %d %H:%M:%S %Y")
                 nomeArquivo = dtt.strftime('%Y-%m-%d')
+                #contador = dtt.strftime("%H:%M:%S.%f")
+                #print("contador",contador)
 
                 timestFile = datetime.date.fromtimestamp(getctime)
                 timestToday = datetime.datetime.fromtimestamp(getctime)
-                print(nomeArquivo==timestToday.date())
-                print("dtt",dtt)
+                print(nomeArquivo == timestToday.date())
+                print("dtt", dtt)
                 print(file)
 
                 print(timestToday.date())
@@ -270,10 +275,10 @@ class Page1(Page):
             print("fino")
             print(cprontFino)
 
-
-            json_str = json.dumps(dict,nomeArquivo)
-            self.createFiles(nomeArquivo, json_str)
-            print(json_str)
+            if ((nomeArquivo == datetime.date.today().day) and (timestFile.day == datetime.date.today().day)):
+                json_str = json.dumps(dict, nomeArquivo)
+                self.createFiles(nomeArquivo, json_str)
+                print(json_str)
 
 
             # builditens = self.Update(dict)
@@ -286,7 +291,11 @@ class Page1(Page):
 
             # print(dict)
 
+
             return dict
+
+
+
     def createFiles(self, nomeArquivo,dict):
         path_files = PATH_FILES
         file = "\\"+nomeArquivo+".json"
@@ -319,6 +328,7 @@ class Page1(Page):
 
     def LimpezarGeral(self):
 
+
         self.total.pack_forget()
         self.pfino.pack_forget()
         self.pgrosso.pack_forget()
@@ -348,6 +358,7 @@ class Page1(Page):
 
         # totalLabel2 = ttk.Label(frame3, text="TARDE")
         # totalLabel2.pack(side=TOP)
+
         self.total.pack()
         self.pfino.pack()
         self.pgrosso.pack()
@@ -545,6 +556,9 @@ class MainView(tk.Frame):
         b2 = ttk.Button(buttonframe, text="Modo Pasta", command=p2.lift)
         b3 = ttk.Button(buttonframe, text="Buscar", command=p3.lift)
 
+        self.contador = ttk.Label(buttonframe, text="CONTADOR", font=SMALL_FONT)
+        self.contador.pack()
+
         b1.pack(side="left")
         b2.pack(side="left")
         b3.pack(side="right")
@@ -553,10 +567,24 @@ class MainView(tk.Frame):
         p1.Reprint() #chamado automaticamente a função de listar pasta
 
 
+    def defineHora(self):
+        #hora = datetime.datetime.utcnow().strftime('%H:%M:%S.%f')
+        hora = datetime.datetime.now().strftime('%H:%M:%S')
+        print(hora)
+        self.contador["text"] = hora
+
+    def adicionaHora(self):
+        self.defineHora()
+        self.after(1, self.adicionaHora)
+
+
 if __name__ == "__main__":
     root = tk.Tk()
+    p1 = Page1()
+
     main = MainView(root)
     main.pack(side="top", fill="both", expand=True)
+    main.adicionaHora()
     root.wm_geometry("440x180+845+20")
     root.wm_title("Visualizador de Produção")
     root.mainloop()

@@ -1,5 +1,5 @@
 import os
-from Core.folder_view import *
+#from Core.folder_view import *
 
 LARGE_FONT = ("Verdana", 14)
 NORMAL_FONT = ("Verdana", 12)

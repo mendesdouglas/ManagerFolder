@@ -1,5 +1,5 @@
 import tkinter as tk
-from tkinter import ttk
+from tkinter import ttk, Menu
 from tkinter.ttk import Style
 from tkinter import *
 from configs import *
@@ -564,7 +564,9 @@ class MainView(tk.Frame):
         b3.pack(side="right")
 
         p1.show() #mostrado a função
-        p1.Reprint() #chamado automaticamente a função de listar pasta
+        # p1.Reprint() #chamado automaticamente a função de listar pasta
+
+
 
 
     def defineHora(self):
@@ -577,14 +579,28 @@ class MainView(tk.Frame):
         self.defineHora()
         self.after(1, self.adicionaHora)
 
+    def teste(self):
+        print("teste efetuado")
+
 
 if __name__ == "__main__":
     root = tk.Tk()
     p1 = Page1()
+    p2 = Page2()
+    mv = MainView()
+
+
+    ##adicionar menu
+    menubar = tk.Menu(root)
+    filemenu = Menu(menubar, tearoff=0)
+    filemenu.add_command(label="Novo", command=p2.lift)
+    menubar.add_cascade(label="Arquivo", menu=filemenu)
+
 
     main = MainView(root)
     main.pack(side="top", fill="both", expand=True)
-    main.adicionaHora()
+    #main.adicionaHora()
     root.wm_geometry("440x180+845+20")
     root.wm_title("Visualizador de Produção")
+    root.config(menu=menubar)
     root.mainloop()

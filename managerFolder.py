@@ -438,6 +438,17 @@ class ManagerFileExplorer:
         if treedir == 3:
             exit()
 
+    def criarDicionario(self):
+        contato = {
+            'Nome':'Douglas',
+            'Sobrenome':'Mendes',
+            'Apelido':'douglasm',
+            'Celular':'90903333',
+        }
+        print(contato)
+        for c in contato:
+            print(c)
+
 
     def Abrirarquivo(self):
         path=input('Entre com o local:')
@@ -465,7 +476,8 @@ class ManagerFileExplorer:
 
 manager = ManagerFileExplorer()
 #manager.ValidaDocs()
-manager.ListarDiretorio()
+manager.criarDicionario()
+
 
 #
 # for i in range(1,100):

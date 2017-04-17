@@ -1,0 +1,223 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<ui version="4.0">
+ <class>MainWindow</class>
+ <widget class="QMainWindow" name="MainWindow">
+  <property name="geometry">
+   <rect>
+    <x>0</x>
+    <y>0</y>
+    <width>666</width>
+    <height>328</height>
+   </rect>
+  </property>
+  <property name="windowTitle">
+   <string>MainWindow</string>
+  </property>
+  <widget class="QWidget" name="centralwidget">
+   <widget class="QWidget" name="gridLayoutWidget">
+    <property name="geometry">
+     <rect>
+      <x>-1</x>
+      <y>60</y>
+      <width>451</width>
+      <height>221</height>
+     </rect>
+    </property>
+    <layout class="QGridLayout" name="gridLayout">
+     <item row="5" column="0">
+      <widget class="QLabel" name="lb_ttlSemanal">
+       <property name="text">
+        <string>Total Semanal</string>
+       </property>
+      </widget>
+     </item>
+     <item row="3" column="0">
+      <widget class="QLabel" name="lb_metaDiaria">
+       <property name="text">
+        <string>Meta Diária:</string>
+       </property>
+      </widget>
+     </item>
+     <item row="6" column="0">
+      <widget class="QLabel" name="lb_ttlMes">
+       <property name="text">
+        <string>Total Mês</string>
+       </property>
+      </widget>
+     </item>
+     <item row="4" column="0">
+      <widget class="QLabel" name="lb_metaMensal">
+       <property name="text">
+        <string>Meta Mensal</string>
+       </property>
+      </widget>
+     </item>
+     <item row="3" column="1">
+      <widget class="QLabel" name="lb_vl_metaDiaria">
+       <property name="text">
+        <string>850</string>
+       </property>
+      </widget>
+     </item>
+     <item row="4" column="1">
+      <widget class="QLabel" name="lb_vl_metaMensal">
+       <property name="text">
+        <string>15000</string>
+       </property>
+      </widget>
+     </item>
+     <item row="5" column="1">
+      <widget class="QLabel" name="lb_vl_ttlSemanal">
+       <property name="text">
+        <string>2000</string>
+       </property>
+      </widget>
+     </item>
+     <item row="6" column="1">
+      <widget class="QLabel" name="lb_vl_ttlMes">
+       <property name="text">
+        <string>8000</string>
+       </property>
+      </widget>
+     </item>
+    </layout>
+   </widget>
+   <widget class="QWidget" name="horizontalLayoutWidget">
+    <property name="geometry">
+     <rect>
+      <x>-1</x>
+      <y>10</y>
+      <width>451</width>
+      <height>51</height>
+     </rect>
+    </property>
+    <layout class="QHBoxLayout" name="horizontalLayout">
+     <item>
+      <widget class="QPushButton" name="pushButton">
+       <property name="text">
+        <string>Modo Produção</string>
+       </property>
+      </widget>
+     </item>
+     <item>
+      <widget class="QPushButton" name="pushButton_2">
+       <property name="text">
+        <string>Modo Pasta</string>
+       </property>
+      </widget>
+     </item>
+    </layout>
+   </widget>
+  </widget>
+  <widget class="QMenuBar" name="menubar">
+   <property name="geometry">
+    <rect>
+     <x>0</x>
+     <y>0</y>
+     <width>666</width>
+     <height>21</height>
+    </rect>
+   </property>
+   <widget class="QMenu" name="menuPrograma">
+    <property name="title">
+     <string>Programa</string>
+    </property>
+    <addaction name="actionUsu_rios"/>
+   </widget>
+   <widget class="QMenu" name="menuExibir">
+    <property name="title">
+     <string>Exibir</string>
+    </property>
+    <addaction name="actionModo_Geral"/>
+    <addaction name="actionModo_Pasta"/>
+    <addaction name="actionModo_Detalhe"/>
+   </widget>
+   <widget class="QMenu" name="menuGerar">
+    <property name="title">
+     <string>Gerar</string>
+    </property>
+    <addaction name="actionPDF"/>
+    <addaction name="separator"/>
+    <addaction name="actionRelat_rios"/>
+   </widget>
+   <widget class="QMenu" name="menuBuscar">
+    <property name="title">
+     <string>Buscar</string>
+    </property>
+    <addaction name="actionBuscar_Produ_o"/>
+   </widget>
+   <widget class="QMenu" name="menuConfigura_es">
+    <property name="title">
+     <string>Configurações</string>
+    </property>
+    <addaction name="actionGerais"/>
+   </widget>
+   <widget class="QMenu" name="menuAjuda">
+    <property name="title">
+     <string>Ajuda</string>
+    </property>
+    <addaction name="actionDesenvolvimento"/>
+    <addaction name="actionVers_o_do_Software"/>
+   </widget>
+   <addaction name="menuPrograma"/>
+   <addaction name="menuExibir"/>
+   <addaction name="menuGerar"/>
+   <addaction name="menuBuscar"/>
+   <addaction name="menuConfigura_es"/>
+   <addaction name="menuAjuda"/>
+  </widget>
+  <widget class="QStatusBar" name="statusbar"/>
+  <action name="actionModo_Geral">
+   <property name="text">
+    <string>Modo Geral</string>
+   </property>
+  </action>
+  <action name="actionModo_Pasta">
+   <property name="text">
+    <string>Modo Pasta</string>
+   </property>
+  </action>
+  <action name="actionModo_Detalhe">
+   <property name="text">
+    <string>Modo Detalhe</string>
+   </property>
+  </action>
+  <action name="actionPDF">
+   <property name="text">
+    <string>PDF</string>
+   </property>
+  </action>
+  <action name="actionBuscar_Produ_o">
+   <property name="text">
+    <string>Buscar Produção</string>
+   </property>
+  </action>
+  <action name="actionRelat_rios">
+   <property name="text">
+    <string>Relatórios</string>
+   </property>
+  </action>
+  <action name="actionGerais">
+   <property name="text">
+    <string>Gerais</string>
+   </property>
+  </action>
+  <action name="actionDesenvolvimento">
+   <property name="text">
+    <string>Desenvolvimento</string>
+   </property>
+  </action>
+  <action name="actionVers_o_do_Software">
+   <property name="text">
+    <string>Versão do Software</string>
+   </property>
+  </action>
+  <action name="actionUsu_rios">
+   <property name="text">
+    <string>Mês</string>
+   </property>
+  </action>
+ </widget>
+ <resources/>
+ <connections/>
+</ui>

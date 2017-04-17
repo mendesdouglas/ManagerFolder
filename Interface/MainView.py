@@ -7,6 +7,10 @@
 # WARNING! All changes made in this file will be lost!
 
 from PyQt4 import QtCore, QtGui
+#import Interface.ProductionModeView
+from PyQt4.QtGui import QMainWindow
+
+from Interface import ProductionModeView
 
 try:
     _fromUtf8 = QtCore.QString.fromUtf8
@@ -22,8 +26,14 @@ except AttributeError:
     def _translate(context, text, disambig):
         return QtGui.QApplication.translate(context, text, disambig)
 
-class Ui_MainWindow(object):
+class Ui_MainWindow(QMainWindow):
     def setupUi(self, MainWindow):
+
+        frame = QtGui.QFrame()
+        pmv = ProductionModeView
+
+
+
         MainWindow.setObjectName(_fromUtf8("MainWindow"))
         MainWindow.resize(796, 600)
         self.centralwidget = QtGui.QWidget(MainWindow)
@@ -63,6 +73,7 @@ class Ui_MainWindow(object):
         self.horizontalLayout = QtGui.QHBoxLayout(self.horizontalLayoutWidget)
         self.horizontalLayout.setObjectName(_fromUtf8("horizontalLayout"))
         self.pushButton = QtGui.QPushButton(self.horizontalLayoutWidget)
+        self.pushButton.clicked.connect(lambda: pmv.run_pmv())
         self.pushButton.setObjectName(_fromUtf8("pushButton"))
         self.horizontalLayout.addWidget(self.pushButton)
         self.pushButton_2 = QtGui.QPushButton(self.horizontalLayoutWidget)
@@ -157,6 +168,19 @@ class Ui_MainWindow(object):
         self.actionDesenvolvimento.setText(_translate("MainWindow", "Desenvolvimento", None))
         self.actionVers_o_do_Software.setText(_translate("MainWindow", "Versão do Software", None))
         self.actionUsu_rios.setText(_translate("MainWindow", "Mês", None))
+
+
+    def call_ProductionModelView(self, frame):
+        app = QtGui.QApplication(sys.argv)
+        Frame = QtGui.QFrame()
+        pmv = ProductionModeView.Ui_Frame()
+        pmv.setupUi(Frame)
+        Frame.showMaximized()
+
+
+
+
+
 
 
 if __name__ == "__main__":

@@ -8,6 +8,7 @@
 
 from PyQt4 import QtCore, QtGui
 
+
 try:
     _fromUtf8 = QtCore.QString.fromUtf8
 except AttributeError:
@@ -22,10 +23,12 @@ except AttributeError:
     def _translate(context, text, disambig):
         return QtGui.QApplication.translate(context, text, disambig)
 
-class Ui_Frame(object):
+class Ui_Frame(QtGui.QWidget):
     def setupUi(self, Frame):
+        print("estou no pmv ui frame")
         Frame.setObjectName(_fromUtf8("Frame"))
         Frame.resize(605, 210)
+        Frame.move(500,500)
         Frame.setFrameShape(QtGui.QFrame.StyledPanel)
         Frame.setFrameShadow(QtGui.QFrame.Raised)
         self.verticalLayoutWidget = QtGui.QWidget(Frame)
@@ -124,13 +127,13 @@ class Ui_Frame(object):
         self.label_3.setText(_translate("Frame", "PF: 400", None))
         self.label_4.setText(_translate("Frame", "PG: 100", None))
 
+def run_pmv():
 
-if __name__ == "__main__":
-    import sys
-    app = QtGui.QApplication(sys.argv)
-    Frame = QtGui.QFrame()
-    ui = Ui_Frame()
-    ui.setupUi(Frame)
-    Frame.show()
-    sys.exit(app.exec_())
-
+        import sys
+        app = QtGui.QApplication(sys.argv)
+        Frame = QtGui.QFrame()
+        ui = Ui_Frame()
+        ui.setupUi(Frame)
+        Frame.show()
+        #sys.exit(app.exec_())
+run_pmv()

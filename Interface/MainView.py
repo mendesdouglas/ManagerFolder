@@ -9,7 +9,6 @@
 from PyQt4 import QtCore, QtGui
 #import Interface.ProductionModeView
 from PyQt4.QtGui import QMainWindow
-
 from Interface import ProductionModeView
 
 try:
@@ -28,11 +27,6 @@ except AttributeError:
 
 class Ui_MainWindow(QMainWindow):
     def setupUi(self, MainWindow):
-
-        frame = QtGui.QFrame()
-        pmv = ProductionModeView
-
-
 
         MainWindow.setObjectName(_fromUtf8("MainWindow"))
         MainWindow.resize(796, 600)
@@ -73,7 +67,7 @@ class Ui_MainWindow(QMainWindow):
         self.horizontalLayout = QtGui.QHBoxLayout(self.horizontalLayoutWidget)
         self.horizontalLayout.setObjectName(_fromUtf8("horizontalLayout"))
         self.pushButton = QtGui.QPushButton(self.horizontalLayoutWidget)
-        self.pushButton.clicked.connect(lambda: pmv.run_pmv())
+        #self.pushButton.clicked.connect(lambda: pmv.run_pmv())
         self.pushButton.setObjectName(_fromUtf8("pushButton"))
         self.horizontalLayout.addWidget(self.pushButton)
         self.pushButton_2 = QtGui.QPushButton(self.horizontalLayoutWidget)

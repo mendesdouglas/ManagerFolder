@@ -23,7 +23,7 @@ except AttributeError:
     def _translate(context, text, disambig):
         return QtGui.QApplication.translate(context, text, disambig)
 
-class Ui_Frame(QtGui.QWidget):
+class Ui_Frame(object):
     def setupUi(self, Frame):
         print("estou no pmv ui frame")
         Frame.setObjectName(_fromUtf8("Frame"))
@@ -107,7 +107,7 @@ class Ui_Frame(QtGui.QWidget):
         Frame.setWindowTitle(_translate("Frame", "Frame", None))
         self.pushButton.setText(_translate("Frame", "Limpar ScanPro", None))
         self.pushButton_2.setText(_translate("Frame", "Gerar Produção", None))
-        self.checkBox.setText(_translate("Frame", "Visualização Automático", None))
+        self.checkBox.setText(_translate("Frame", "Auto Update", None))
         __sortingEnabled = self.list_productionView.isSortingEnabled()
         self.list_productionView.setSortingEnabled(False)
         item = self.list_productionView.item(0)
@@ -135,5 +135,5 @@ def run_pmv():
         ui = Ui_Frame()
         ui.setupUi(Frame)
         Frame.show()
-        #sys.exit(app.exec_())
+        sys.exit(app.exec_())
 run_pmv()

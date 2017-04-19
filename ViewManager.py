@@ -19,14 +19,6 @@ class Window(QtGui.QMainWindow):
         action_programa.setShortcut("Ctrl+Q")
         action_programa.triggered.connect(pmv.productionView)
 
-        action_programa = QtGui.QAction("&Sair", self.centralWidget)
-        action_programa.setShortcut("Ctrl+Q")
-        action_programa.triggered.connect(pmv.productionView)
-
-        action_programa = QtGui.QAction("&Sair", self.centralWidget)
-        action_programa.setShortcut("Ctrl+Q")
-        action_programa.triggered.connect(pmv.productionView)
-
 
         self.statusBar()
 
